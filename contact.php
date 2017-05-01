@@ -1,10 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<!DOCTYPE html>
+<html>
 	<head>
 		<title>Контакты</title>
-		<meta http-equiv="content-type"
-			content="text/html; charset=windows-1251" />
-		<link rel="stylesheet" type="text/css" href="style.css" />
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
 
@@ -20,6 +19,30 @@
 			<h1>Обратная связь</h1>
 			<!-- Заголовок -->
 			<!-- Область основного контента -->
+			<?php
+
+$size = ini_get('post_max_size');
+$bit  = $size[strlen($size) - 1];
+
+switch ($bit) {
+    case 'K':
+        $size = (int) $size * 1024;
+        break;
+
+    case 'M':
+        $size = (int) $size * 1048576;
+        break;
+
+    case 'G':
+        $size = (int) $size * 1073741824;
+        break;
+
+    default:
+
+        break;
+}
+
+?>
 			<h3>Адрес</h3>
 			<p>123456 Москва, Малый Американский переулок 21</p>
 			<h3>Задайте вопрос</h3>
@@ -30,6 +53,7 @@
 				<textarea name='body' cols="50" rows="10"></textarea><br /><br />
 				<input type='submit' value='Отправить' />
 			</form>
+			<p>Максимальный размер отправляемых данных <?php echo $size; ?> байт.</p>
 			<!-- Область основного контента -->
 		</div>
 		<div id="nav">
