@@ -1,0 +1,6 @@
+# Настройки сервера Apache
+Options -Indexes FollowSymLinks
+DirectoryIndex index.php
+
+# Настройки PHP
+php_flags display_errors on
