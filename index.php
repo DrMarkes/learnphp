@@ -11,6 +11,39 @@ $day   = strftime('%d');
 $month = strftime('%B');
 $year  = strftime('%Y');
 
+// Инициализация массива
+$leftMenu = [
+    ['link' => 'Домой', 'href' => 'index.php'],
+    ['link' => 'О нас', 'href' => 'about.php'],
+    ['link' => 'Контакты', 'href' => 'contact.php'],
+    ['link' => 'Таблица умножения', 'href' => 'table.php'],
+    ['link' => 'Калькулятор', 'href' => 'calc.php'],
+];
+
+/**
+ * Draw Navigation Menu
+ * @param  array   $menu     Menu Items
+ * @param  boolean $vertical Menu Orientation
+ * @return void
+ */
+function drawMenu(array $menu, $vertical = true)
+{
+    $liStyle = '';
+    $aStyle  = '';
+    if (!$vertical) {
+        $liStyle = "style='display: inline-block;
+            margin-right: 30px'";
+        $aStyle = "style='display: block;
+            padding: 5px, 15px;
+            text-decoration: none'";
+    }
+    echo "<ul>";
+    foreach ($menu as $menuItem) {
+        echo "<li $liStyle><a $aStyle href='{$menuItem['href']}'> {$menuItem['link']}</a></li>";
+    }
+    echo "</ul>";
+}
+
 /*
  * Получаем текущий час от 00 до 23
  * и приводим строку к числу от 0 до 23
@@ -70,7 +103,7 @@ if ($hour < 6) {
             </h3>
             <p>
                 Аббревиатура ЕГЭ расшифровывается как "Единый Государственный Экзамен".
-			Почему "единый"? ЕГЭ одновременно является и вступительным экзаменом в ВУЗ и итоговой оценкой каждого выпускника школы. К тому же на всей территории России используются однотипные задания и единая система оценки.
+            Почему "единый"? ЕГЭ одновременно является и вступительным экзаменом в ВУЗ и итоговой оценкой каждого выпускника школы. К тому же на всей территории России используются однотипные задания и единая система оценки.
             </p>
             <p>
                 Результаты ЕГЭ оцениваются по 100-балльной и пятибалльной системам и заносятся в свидетельство о результатах единого государственного экзамена. Срок действия данного документа истекает 31 декабря года, следующего за годом его выдачи, поэтому у абитуриентов есть возможность поступать в ВУЗы со свидетельством ЕГЭ в течение двух лет.
@@ -83,53 +116,14 @@ if ($hour < 6) {
                 Навигация по сайту
             </h2>
             <!-- Меню -->
-            <?php
-$leftMenu = [
-    ['link' => 'Домой', 'href' => 'index.php'],
-    ['link' => 'О нас', 'href' => 'about.php'],
-    ['link' => 'Контакты', 'href' => 'contact.php'],
-    ['link' => 'Таблица умножения', 'href' => 'table.php'],
-    ['link' => 'Калькулятор', 'href' => 'calc.php'],
-];
-
-/*end($leftMenu);
-prev($leftMenu);
-echo key($leftMenu);
-reset($leftMenu);
-var_dump (current($leftMenu));*/
-?>
-            <ul>
-                <li>
-                    <a href='<?php echo $leftMenu[0]['href'] ?>'>
-                        <?php echo $leftMenu[0]['link']; ?>
-                    </a>
-                </li>
-                <li>
-                    <a href='<?php echo $leftMenu[1]['href'] ?>'>
-                        <?php echo $leftMenu[1]['link']; ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo $leftMenu[2]['href'] ?>">
-                        <?php echo $leftMenu[2]['link']; ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo $leftMenu[3]['href'] ?>">
-                        <?php echo $leftMenu[3]['link']; ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo $leftMenu[4]['href'] ?>">
-                        <?php echo $leftMenu[4]['link']; ?>
-                    </a>
-                </li>
-            </ul>
+            <?php drawMenu($leftMenu);?>
             <!-- Меню -->
             <!-- Навигация -->
         </div>
         <div id="footer">
             <!-- Нижняя часть страницы -->
+            <?php drawMenu($leftMenu, 0);?>
+            <hr>
             © <?php echo COPYRIGHT, ", 2000 - $year"; ?>
             <!-- Нижняя часть страницы -->
         </div>
