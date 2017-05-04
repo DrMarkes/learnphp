@@ -83,30 +83,45 @@ if ($hour < 6) {
                 Навигация по сайту
             </h2>
             <!-- Меню -->
+            <?php
+$leftMenu = [
+    ['link' => 'Домой', 'href' => 'index.php'],
+    ['link' => 'О нас', 'href' => 'about.php'],
+    ['link' => 'Контакты', 'href' => 'contact.php'],
+    ['link' => 'Таблица умножения', 'href' => 'table.php'],
+    ['link' => 'Калькулятор', 'href' => 'calc.php'],
+];
+
+/*end($leftMenu);
+prev($leftMenu);
+echo key($leftMenu);
+reset($leftMenu);
+var_dump (current($leftMenu));*/
+?>
             <ul>
                 <li>
-                    <a href="index.php">
-                        Домой
+                    <a href='<?php echo $leftMenu[0]['href'] ?>'>
+                        <?php echo $leftMenu[0]['link']; ?>
                     </a>
                 </li>
                 <li>
-                    <a href="about.php">
-                        О нас
+                    <a href='<?php echo $leftMenu[1]['href'] ?>'>
+                        <?php echo $leftMenu[1]['link']; ?>
                     </a>
                 </li>
                 <li>
-                    <a href="contact.php">
-                        Контакты
+                    <a href="<?php echo $leftMenu[2]['href'] ?>">
+                        <?php echo $leftMenu[2]['link']; ?>
                     </a>
                 </li>
                 <li>
-                    <a href="table.php">
-                        Таблица умножения
+                    <a href="<?php echo $leftMenu[3]['href'] ?>">
+                        <?php echo $leftMenu[3]['link']; ?>
                     </a>
                 </li>
                 <li>
-                    <a href="calc.php">
-                        Калькулятор
+                    <a href="<?php echo $leftMenu[4]['href'] ?>">
+                        <?php echo $leftMenu[4]['link']; ?>
                     </a>
                 </li>
             </ul>

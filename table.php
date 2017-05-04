@@ -1,10 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<?php
+$cols = 4;
+$rows = 6;
+$color = 'yellow';
+?>
+<!DOCTYPE html>
+<html>
 	<head>
 		<title>Таблица умножения</title>
-		<meta http-equiv="content-type"
-			content="text/html; charset=windows-1251" />
-		<link rel="stylesheet" type="text/css" href="style.css" />
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="style.css" />
+		<style>
+			.table-header{
+				text-align: center;
+				height: 36px;
+				width: 36px;
+			}
+		</style>
 	</head>
 	<body>
 
@@ -30,12 +41,22 @@
 				<input type='submit' value='Создать' />
 			</form>
 			<!-- Таблица -->
-			<table border='1' width="200">
-				<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-				<tr><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td></tr>
-				<tr><td>3</td><td>6</td><td>9</td><td>12</td><td>15</td></tr>
-				<tr><td>4</td><td>8</td><td>12</td><td>16</td><td>10</td></tr>
-				<tr><td>5</td><td>10</td><td>15</td><td>20</td><td>25</td></tr>
+			<table border=1 >
+				<?php
+				for ($i=1; $i <= $rows; $i++) { 
+					echo "<tr>";
+					for ($m=1; $m <= $cols; $m++) { 
+						$mult = $i * $m;
+						if(1 == $m or 1 == $i) {
+							echo "<th class='table-header' style='background: $color' 
+							> $mult </th>";
+						} else {
+							echo "<td> $mult </td>";
+						}
+					}
+					echo "</tr>";
+				}
+				?>
 			</table>
 			<!-- Таблица -->
 			<!-- Область основного контента -->
