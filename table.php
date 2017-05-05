@@ -1,27 +1,4 @@
-<?php
 
-function drawTable($cols = 10, $rows = 10, $color = 'yellow')
-{
-    echo "<table border='1'>";
-    for ($i = 1; $i <= $rows; $i++) {
-        echo "<tr>";
-        for ($m = 1; $m <= $cols; $m++) {
-            $mult = $i * $m;
-            if (1 == $m or 1 == $i) {
-                echo "<th style='text-align: center;
-                	height: 36px;
-                	width: 36px;
-                	background: $color'
-					> $mult </th>";
-            } else {
-                echo "<td> $mult </td>";
-            }
-        }
-        echo "</tr>";
-    }
-    echo "</table>";
-}
-?>
 <!DOCTYPE html>
 <html>
 	<head>

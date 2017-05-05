@@ -36,3 +36,5 @@ echo myCount([
 /*echo myCount();
 echo myCount(1);
 echo myCount([]);*/
+
+print_r(getdate());
