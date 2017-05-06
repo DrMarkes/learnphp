@@ -1,6 +1,36 @@
 <?php
 
 /**
+ * Filtration string data
+ * @param  $string $data data
+ * @return $string       filtration data
+ */
+function cleanStr($data)
+{
+    return trim(strip_tags($data));
+}
+
+/**
+ * Filtration data integer
+ * @param  int $data input data
+ * @return int       filtration data
+ */
+function cleanInt($data)
+{
+    return (int) $data;
+}
+
+/**
+ * Filtration absolute integer data
+ * @param  int $data input data
+ * @return int       abs int data
+ */
+function cleanUInt($data)
+{
+    return abs(cleanInt($data));
+}
+
+/**
  * Draw Multiplication table
  * @param  integer $cols  the number of columns
  * @param  integer $rows  the number of rows
@@ -55,5 +85,28 @@ function drawMenu($menu, $vertical = true)
     }
     echo "</ul>";
 
+    return true;
+}
+
+/**
+ * Show max size of upload file
+ * @return true
+ */
+function showFileSize()
+{
+    $size = ini_get('post_max_size');
+    $bit  = $size[strlen($size) - 1];
+    $size = (int) $size;
+    switch (strtoupper($bit)) {
+        case 'G':
+            $size *= 1024;
+
+        case 'M':
+            $size *= 1024;
+
+        case 'K':
+            $size *= 1024;
+    }
+    echo $size;
     return true;
 }

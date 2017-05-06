@@ -3,9 +3,9 @@
 require_once 'config.php';
 
 // Объявление констант
-const COPYRIGHT = 'Супер Мега Веб-мастер';
+const COPYRIGHT               = 'Супер Мега Веб-мастер';
 const ERR_DRAW_ON_BOTTOM_MENU = 'Извините...';
-const ERR_DRAW_ON_LEFT_MENU = 'Извините...';
+const ERR_DRAW_ON_LEFT_MENU   = 'Извините...';
 
 // Установка локали и выбор значений даты
 setlocale(LC_ALL, 'ru_RU.utf-8');
@@ -16,10 +16,10 @@ $year  = strftime('%Y');
 // Инициализация массива
 $leftMenu = [
     ['link' => 'Домой', 'href' => 'index.php'],
-    ['link' => 'О нас', 'href' => 'about.php'],
-    ['link' => 'Контакты', 'href' => 'contact.php'],
-    ['link' => 'Таблица умножения', 'href' => 'table.php'],
-    ['link' => 'Калькулятор', 'href' => 'calc.php'],
+    ['link' => 'О нас', 'href' => 'index.php?id=about'],
+    ['link' => 'Контакты', 'href' => 'index.php?id=contact'],
+    ['link' => 'Таблица умножения', 'href' => 'index.php?id=table'],
+    ['link' => 'Калькулятор', 'href' => 'index.php?id=calc'],
 ];
 
 /*
@@ -40,5 +40,3 @@ if ($hour < 6) {
 } else {
     $welcome = 'Доброй ночи';
 }
-
-?>

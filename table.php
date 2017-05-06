@@ -1,55 +1,43 @@
+<?php 
+$cols = '';
+$rows = '';
+$color = '';
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Таблица умножения</title>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+	$cols = cleanUInt($_POST['cols']);
+	$rows = cleanUInt($_POST['rows']);
+	$color = cleanStr($_POST['color']);
+}
 
-		<div id="header">
-			<!-- Верхняя часть страницы -->
-			<img src="logo.gif" width="187" height="29" alt="Наш логотип" class="logo" />
-			<span class="slogan">приходите к нам учиться</span>
-			<!-- Верхняя часть страницы -->
-		</div>
+$cols = ($cols) ? $cols : 10;
+$rows = ($rows) ? : 10;
+$color = ($color) ? : 'yellow';
 
-		<div id="content">
-			<!-- Заголовок -->
-			<h1>Таблица умножения</h1>
-			<!-- Заголовок -->
-			<!-- Область основного контента -->
-			<form action=''>
-				<label>Количество колонок: </label><br />
-				<input name='cols' type='text' value="" /><br />
-				<label>Количество строк: </label><br />
-				<input name='rows' type='text' value="" /><br />
-				<label>Цвет: </label><br />
-				<input name='color' type='text' value="" /><br /><br />
-				<input type='submit' value='Создать' />
-			</form>
-			<!-- Таблица -->
-				<?php drawTable();?>
-			<!-- Таблица -->
-			<!-- Область основного контента -->
-		</div>
-		<div id="nav">
-			<h2>Навигация по сайту</h2>
-			<!-- Меню -->
-			<ul>
-				<li><a href='index.php'>Домой</a></li>
-				<li><a href='about.php'>О нас</a></li>
-				<li><a href='contact.php'>Контакты</a></li>
-				<li><a href='table.php'>Таблица умножения</a></li>
-				<li><a href='calc.php'>Калькулятор</a></li>
-			</ul>
-			<!-- Меню -->
-		</div>
-		<div id="footer">
-			<!-- Нижняя часть страницы -->
-			&copy; Супер Мега Веб-мастер, 2000 - 2012
-			<!-- Нижняя часть страницы -->
-		</div>
-	</body>
-</html>
+?>
+<!-- Область основного контента -->
+<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post">
+    <label>
+        Количество колонок:
+    </label>
+    <br/>
+    <input name="cols" type="text" value="<?php echo $cols ?>"/>
+    <br/>
+    <label>
+        Количество строк:
+    </label>
+    <br/>
+    <input name="rows" type="text" value="<?php echo $rows ?>"/>
+    <br/>
+    <label>
+        Цвет:
+    </label>
+    <br/>
+    <input name="color" type="text" value="<?php echo $color ?>"/>
+    <br/>
+    <br/>
+    <input type="submit" value="Создать"/>
+</form>
+<!-- Таблица -->
+<?php drawTable($cols, $rows, $color);?>
+<!-- Таблица -->
+<!-- Область основного контента -->

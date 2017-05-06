@@ -1,40 +1,15 @@
+<form action="" method="post">
+    <input type="text" name="name"><br>
+    <input type="text" name="age"><br>
+    <input type="submit">
+</form>
+
 <?php
-/*$x = (real) 'hello';
-echo getType($x);*/
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+$name = trim(strip_tags($_POST['name']));
+$age = abs((int) ($_POST['age']));
+$message = htmlspecialchars($_POST['message']);
 
-function myCount($var, $mode = 0)
-{
-    $count = 0;
-    if (is_null($var)) {
-        return 0;
-    }
-
-    if (!is_array($var)) {
-        return 1;
-    }
-
-    foreach ($var as $item) {
-        if (is_array($item) && 1 == $mode) {
-            $count += myCount($item, 1);
-        }
-        $count++;
-    }
-    return $count;
+echo "Ваше имя: $name<br>";
+echo "Ваш возраст: $age";
 }
-
-echo myCount([
-    [1, 1, 1, 1],
-    [1, 1],
-    [1, 1],
-]);
-echo "<br>";
-echo myCount([
-    [1, 1, 1, 1],
-    [1, 1],
-    [1, 1],
-], 1);
-/*echo myCount();
-echo myCount(1);
-echo myCount([]);*/
-
-print_r(getdate());
