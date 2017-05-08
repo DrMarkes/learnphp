@@ -8,6 +8,9 @@
 
 	while($name = readdir($dir)){
 		
+		if($name == '.' || $name == '..') {
+			continue;
+		}
 		if(is_dir($name))
 			echo '[<b>'.$name.'</b>]<br>';
 		else
@@ -16,6 +19,9 @@
 
 	closedir($dir);
 	
+	echo "<pre>";
+	print_r(scandir('.'));
+	echo "</pre>";
 	
 ?>
 </BODY>

@@ -1,5 +1,5 @@
 <?php 
-if(file_exists(PATH_LOG)) {
+if(is_file(PATH_LOG)) {
 	$log = file(PATH_LOG, FILE_SKIP_EMPTY_LINES);
 
 	echo "<ol>";
