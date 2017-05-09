@@ -1,6 +1,7 @@
 <?
 	include 'inc/headers.inc.php';
 	include 'inc/cookie.inc.php';
+	ob_start();
 
 	// Имя файла журнала
 	const PATH_LOG = 'log/path.log';
