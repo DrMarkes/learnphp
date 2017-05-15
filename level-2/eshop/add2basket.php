@@ -1,4 +1,12 @@
 <?php
-	// ïîäêëþ÷åíèå áèáëèîòåê
+	// Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐº
 	require "inc/lib.inc.php";
 	require "inc/config.inc.php";
+
+if (isset($_GET['id'])) {
+	$id = $_GET['id'];
+	addToBasket($id);
+}
+
+header("Location: /level-2/eshop/catalog.php");
+exit;

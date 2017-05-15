@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
 	<head>
-		<title>Контакты</title>
+		<title>РљРѕРЅС‚Р°РєС‚С‹</title>
 		<meta http-equiv="content-type"
 			content="text/html; charset=windows-1251" />
 		<link rel="stylesheet" type="text/css" href="style.css" />
@@ -9,45 +9,45 @@
 	<body>
 
 		<div id="header">
-			<!-- Верхняя часть страницы -->
-			<img src="logo.gif" width="187" height="29" alt="Наш логотип" class="logo" />
-			<span class="slogan">приходите к нам учиться</span>
-			<!-- Верхняя часть страницы -->
+			<!-- Р’РµСЂС…РЅСЏСЏ С‡Р°СЃС‚СЊ СЃС‚СЂР°РЅРёС†С‹ -->
+			<img src="logo.gif" width="187" height="29" alt="РќР°С€ Р»РѕРіРѕС‚РёРї" class="logo" />
+			<span class="slogan">РїСЂРёС…РѕРґРёС‚Рµ Рє РЅР°Рј СѓС‡РёС‚СЊСЃСЏ</span>
+			<!-- Р’РµСЂС…РЅСЏСЏ С‡Р°СЃС‚СЊ СЃС‚СЂР°РЅРёС†С‹ -->
 		</div>
 
 		<div id="content">
-			<!-- Заголовок -->
-			<h1>Обратная связь</h1>
-			<!-- Заголовок -->
-			<!-- Область основного контента -->
-			<h3>Адрес</h3>
-			<p>123456 Москва, Малый Американский переулок 21</p>
-			<h3>Задайте вопрос</h3>
+			<!-- Р—Р°РіРѕР»РѕРІРѕРє -->
+			<h1>РћР±СЂР°С‚РЅР°СЏ СЃРІСЏР·СЊ</h1>
+			<!-- Р—Р°РіРѕР»РѕРІРѕРє -->
+			<!-- РћР±Р»Р°СЃС‚СЊ РѕСЃРЅРѕРІРЅРѕРіРѕ РєРѕРЅС‚РµРЅС‚Р° -->
+			<h3>РђРґСЂРµСЃ</h3>
+			<p>123456 РњРѕСЃРєРІР°, РњР°Р»С‹Р№ РђРјРµСЂРёРєР°РЅСЃРєРёР№ РїРµСЂРµСѓР»РѕРє 21</p>
+			<h3>Р—Р°РґР°Р№С‚Рµ РІРѕРїСЂРѕСЃ</h3>
 			<form action='' method='post'>
-				<label>Тема письма: </label><br />
+				<label>РўРµРјР° РїРёСЃСЊРјР°: </label><br />
 				<input name='subject' type='text' size="50"/><br />
-				<label>Содержание: </label><br />
+				<label>РЎРѕРґРµСЂР¶Р°РЅРёРµ: </label><br />
 				<textarea name='body' cols="50" rows="10"></textarea><br /><br />
-				<input type='submit' value='Отправить' />
+				<input type='submit' value='РћС‚РїСЂР°РІРёС‚СЊ' />
 			</form>	
-			<!-- Область основного контента -->
+			<!-- РћР±Р»Р°СЃС‚СЊ РѕСЃРЅРѕРІРЅРѕРіРѕ РєРѕРЅС‚РµРЅС‚Р° -->
 		</div>
 		<div id="nav">
-			<h2>Навигация по сайту</h2>
-			<!-- Меню -->
+			<h2>РќР°РІРёРіР°С†РёСЏ РїРѕ СЃР°Р№С‚Сѓ</h2>
+			<!-- РњРµРЅСЋ -->
 			<ul>
-				<li><a href='index.php'>Домой</a></li>
-				<li><a href='about.php'>О нас</a></li>
-				<li><a href='contact.php'>Контакты</a></li>
-				<li><a href='table.php'>Таблица умножения</a></li>
-				<li><a href='calc.php'>Калькулятор</a></li>
+				<li><a href='index.php'>Р”РѕРјРѕР№</a></li>
+				<li><a href='about.php'>Рћ РЅР°СЃ</a></li>
+				<li><a href='contact.php'>РљРѕРЅС‚Р°РєС‚С‹</a></li>
+				<li><a href='table.php'>РўР°Р±Р»РёС†Р° СѓРјРЅРѕР¶РµРЅРёСЏ</a></li>
+				<li><a href='calc.php'>РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ</a></li>
 			</ul>
-			<!-- Меню -->
+			<!-- РњРµРЅСЋ -->
 		</div>
 		<div id="footer">
-			<!-- Нижняя часть страницы -->
-			&copy; Супер Мега Веб-мастер, 2000 - 2012
-			<!-- Нижняя часть страницы -->
+			<!-- РќРёР¶РЅСЏСЏ С‡Р°СЃС‚СЊ СЃС‚СЂР°РЅРёС†С‹ -->
+			&copy; РЎСѓРїРµСЂ РњРµРіР° Р’РµР±-РјР°СЃС‚РµСЂ, 2000 - 2012
+			<!-- РќРёР¶РЅСЏСЏ С‡Р°СЃС‚СЊ СЃС‚СЂР°РЅРёС†С‹ -->
 		</div>
 	</body>
 </html>
