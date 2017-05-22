@@ -30,4 +30,3 @@ interface INewsDB{
 	*/
 	function deleteNews($id);
 }
-?>
