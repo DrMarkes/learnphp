@@ -14,6 +14,9 @@ class NewsDB implements INewsDB
 {
 
     const DB_NAME = 'news.db';
+    const RSS_NAME = 'rss.xml';
+    const RSS_TITLE = 'Последние новости';
+    const RSS_LINK = 'http://learnphp.dev/level-3/news/news.php';
 
     private $_db;
 
@@ -90,6 +93,8 @@ class NewsDB implements INewsDB
             return false;
         }
 
+        $this->createRss();
+
         return true;
     }
 
@@ -155,5 +160,50 @@ class NewsDB implements INewsDB
         }
 
         return $arr;
+    }
+
+    public function createRss() {
+        $dom = new DOMDocument('1.0', 'utf-8');
+        $dom->formatOutput = true;
+        $dom->preserveWhiteSpace = false;
+
+        $rss = $dom->createElement('rss');
+        $rss->setAttribute('version', '2.0');
+        $dom->appendChild($rss);
+
+        $channel = $dom->createElement('channel');
+        $rss->appendChild($channel);
+
+        $title = $dom->createElement('title', self::RSS_TITLE);
+        $channel->appendChild($title);
+
+        $link = $dom->createElement('link', self::RSS_LINK);
+        $channel->appendChild($link);
+
+        $news = $this->getNews();
+
+        foreach ($news as $value) {
+            $item = $dom->createElement('item');
+
+            $title = $dom->createElement('title', $value['title']);
+            $item->appendChild($title);
+
+            $link = $dom->createElement('link', self::RSS_LINK . "?id=" . $value['id']);
+            $item->appendChild($link);
+
+            $description = $dom->createElement('description', $value['description']);
+            $item->appendChild($description);
+
+            $date = date(DateTime::RFC2822, $value['datetime']);
+            $pubDate = $dom->createElement('pubDate', $date);
+            $item->appendChild($pubDate);
+
+            $category = $dom->createElement('category', $value['category']);
+            $item->appendChild($category);
+
+            $channel->appendChild($item);
+        }
+
+        $dom->save(self::RSS_NAME);
     }
 }
