@@ -10,10 +10,10 @@ class NewsService extends NewsDB{
 					FROM msgs
 					WHERE id = $id";
 			$result = $this->_db->query($sql);
-			//var_dump($result);
+			//var_dump($result); die();
 			if (!is_object($result)) 
 				throw new Exception($this->_db->lastErrorMsg());
-			return $this->db2Arr($result);
+			return $this->dbToArray($result);
 		}catch(Exception $e){
 			return $e->getMessage();
 		}
@@ -31,4 +31,14 @@ class NewsService extends NewsDB{
 			return base64_encode(serialize($result));
 		}
 }
-?>
+
+$request_xml = file_get_contents("php://input");
+/* Создаем XML-RPC сервер */
+$xmlrpc_server = xmlrpc_server_create();
+/* Регистрируем метод класса */
+xmlrpc_server_register_method($xmlrpc_server, "getNewsById", array(new NewsService, "xmlRpcGetNewsById"));
+/*Отдаем правильный заголовок*/
+header('Content-Type: text/xml;charset=utf-8');
+/* Отдаем результат */
+print xmlrpc_server_call_method($xmlrpc_server, $request_xml, null);
+

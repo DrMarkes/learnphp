@@ -13,12 +13,13 @@ spl_autoload_register(/**
 class NewsDB implements INewsDB
 {
 
-    const DB_NAME = 'news.db';
-    const RSS_NAME = 'rss.xml';
+
+    const DB_NAME = '/home/markes/Projects/learnphp/level-3/news/news.db';
+    const RSS_NAME = '/home/markes/Projects/learnphp/level-3/news/rss.xml';
     const RSS_TITLE = 'Последние новости';
     const RSS_LINK = 'http://learnphp.dev/level-3/news/news.php';
 
-    private $_db;
+    protected $_db;
 
     private $sqlCreateMsgs = "CREATE TABLE msgs(
 	        id INTEGER PRIMARY KEY AUTOINCREMENT,

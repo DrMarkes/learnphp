@@ -20,4 +20,3 @@ xmlrpc_server_register_method($xmlrpc_server, "getStock", "get_stock");
 header('Content-Type: text/xml;charset=utf-8');
 /* Отдаем результат */
 print xmlrpc_server_call_method($xmlrpc_server, $request_xml, null);
-?>

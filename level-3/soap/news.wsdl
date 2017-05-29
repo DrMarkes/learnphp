@@ -1,7 +1,7 @@
 <?xml version ='1.0' encoding ='UTF-8' ?> 
 <definitions name='News' 
-		targetNamespace='http://mysite.local/news' 
-		xmlns:tns=' http://mysite.local/news' 
+		targetNamespace='http://mysite.local/news'
+		xmlns:tns=' http://mysite.local/news'
 		xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
 		xmlns:xsd='http://www.w3.org/2001/XMLSchema' 
 		xmlns:soapenc='http://schemas.xmlsoap.org/soap/encoding/' 
@@ -50,7 +50,7 @@
 
 	<service name='NewsService'> 
 		<port name='NewsPort' binding='NewsBinding'> 
-			<soap:address location='http://mysite.local/soap/soap-server.php'/> 
+			<soap:address location='http://mysite.local/soap/soap-server.php'/>
 		</port> 
 	</service> 
 </definitions>

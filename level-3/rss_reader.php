@@ -10,18 +10,16 @@ const FILE_NAME = "news.xml";
 function download($url, $filename)
 {
     $file = file_get_contents($url);
-    if($file) {
+    if ($file) {
         return file_put_contents($filename, $file);
     }
 
     return false;
 }
 
-if (!file_exists(FILE_NAME)) {
+if (!file_exists(FILE_NAME) || time() > filemtime(FILE_NAME) + 600) {
     download(RSS_URL, FILE_NAME);
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -44,14 +42,10 @@ if (!empty($rss->channel)) {
         echo <<<NEWS
 <hr/>
 <H3>{$item->title}</H3>
-<br>{$description}</br></br>{$item->category} @ {$item->pubDate}</p>
-<p><a href="{$item->link}">Ссылка на новость</a></p>
+<br>{$description}</br></br><strong>Категория: </strong>{$item->category} @ {$item->pubDate}</p>
+<p align="right"><a href="{$item->link}">Читать дальше...</a></p>
 NEWS;
     }
-}
-
-if(time() > filemtime(FILE_NAME) + 600) {
-    download(RSS_URL, FILE_NAME);
 }
 ?>
 </body>
